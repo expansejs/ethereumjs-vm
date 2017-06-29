@@ -1,10 +1,10 @@
 const tape = require('tape')
 const VM = require('../')
 var async = require('async')
-var Account = require('ethereumjs-account')
-var Transaction = require('ethereumjs-tx')
+var Account = require('expansejs-account')
+var Transaction = require('expansejs-tx')
 var Trie = require('merkle-patricia-tree')
-var ethUtil = require('ethereumjs-util')
+var ethUtil = require('expansejs-util')
 
 tape('test the cache api', function (t) {
   t.test('should have the correct value in the cache ', function (st) {

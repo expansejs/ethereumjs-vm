@@ -1,11 +1,11 @@
 const async = require('async')
-const utils = require('ethereumjs-util')
+const utils = require('expansejs-util')
 const BN = utils.BN
 const rlp = utils.rlp
-const Account = require('ethereumjs-account')
-const Transaction = require('ethereumjs-tx')
-const Block = require('ethereumjs-block')
-const Header = require('ethereumjs-block/header.js')
+const Account = require('expansejs-account')
+const Transaction = require('expansejs-tx')
+const Block = require('expansejs-block')
+const Header = require('expansejs-block/header.js')
 
 exports.dumpState = function (state, cb) {
   var rs = state.createReadStream()

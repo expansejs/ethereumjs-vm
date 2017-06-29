@@ -27,7 +27,7 @@ module.exports = require('./lib/index.js')
 },{"./lib/index.js":7}],3:[function(require,module,exports){
 (function (Buffer){
 const assert = require('assert')
-const utils = require('ethereumjs-util')
+const utils = require('expansejs-util')
 const byteSize = 256
 
 /**
@@ -116,10 +116,10 @@ Bloom.prototype.or = function (bloom) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"assert":128,"buffer":130,"ethereumjs-util":65}],4:[function(require,module,exports){
+},{"assert":128,"buffer":130,"expansejs-util":65}],4:[function(require,module,exports){
 (function (Buffer){
 const Tree = require('functional-red-black-tree')
-const Account = require('ethereumjs-account')
+const Account = require('expansejs-account')
 const async = require('async')
 
 var Cache = module.exports = function (trie) {
@@ -239,7 +239,7 @@ Cache.prototype.del = function (key) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"async":29,"buffer":130,"ethereumjs-account":58,"functional-red-black-tree":66}],5:[function(require,module,exports){
+},{"async":29,"buffer":130,"expansejs-account":58,"functional-red-black-tree":66}],5:[function(require,module,exports){
 exports.ERROR = {
   OUT_OF_GAS: 'out of gas',
   STACK_UNDERFLOW: 'stack underflow',
@@ -249,7 +249,7 @@ exports.ERROR = {
 
 },{}],6:[function(require,module,exports){
 (function (Buffer){
-var utils = require('ethereumjs-util')
+var utils = require('expansejs-util')
 
 module.exports = {
   getBlock: function (n, cb) {
@@ -266,12 +266,12 @@ module.exports = {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":130,"ethereumjs-util":65}],7:[function(require,module,exports){
+},{"buffer":130,"expansejs-util":65}],7:[function(require,module,exports){
 require('es6-shim')
 const util = require('util')
 const async = require('async')
 const BN = require('bn.js')
-const common = require('ethereum-common')
+const common = require('expanse-common')
 const StateManager = require('./stateManager.js')
 var AsyncEventEmitter = require('async-eventemitter')
 
@@ -284,8 +284,8 @@ const num04 = require('./precompiled/04-identity.js')
 module.exports = VM
 
 VM.deps = {
-  ethUtil: require('ethereumjs-util'),
-  Account: require('ethereumjs-account'),
+  ethUtil: require('expansejs-util'),
+  Account: require('expansejs-account'),
   Trie: require('merkle-patricia-tree'),
   rlp: require('rlp')
 }
@@ -390,7 +390,7 @@ VM.prototype.populateCache = function (addresses, cb) {
 //   return rs
 // }
 
-},{"./precompiled/01-ecrecover.js":11,"./precompiled/02-sha256.js":12,"./precompiled/03-repemd160.js":13,"./precompiled/04-identity.js":14,"./runBlock.js":15,"./runBlockchain.js":16,"./runCall.js":17,"./runCode.js":18,"./runJit.js":19,"./runTx.js":20,"./stateManager.js":21,"async":29,"async-eventemitter":26,"bn.js":30,"es6-shim":55,"ethereum-common":56,"ethereumjs-account":58,"ethereumjs-util":65,"merkle-patricia-tree":103,"rlp":121,"util":296}],8:[function(require,module,exports){
+},{"./precompiled/01-ecrecover.js":11,"./precompiled/02-sha256.js":12,"./precompiled/03-repemd160.js":13,"./precompiled/04-identity.js":14,"./runBlock.js":15,"./runBlockchain.js":16,"./runCall.js":17,"./runCode.js":18,"./runJit.js":19,"./runTx.js":20,"./stateManager.js":21,"async":29,"async-eventemitter":26,"bn.js":30,"es6-shim":55,"expanse-common":56,"expansejs-account":58,"expansejs-util":65,"merkle-patricia-tree":103,"rlp":121,"util":296}],8:[function(require,module,exports){
 const BN = require('bn.js')
 const pow32 = new BN('010000000000000000000000000000000000000000000000000000000000000000', 16)
 const pow31 = new BN('0100000000000000000000000000000000000000000000000000000000000000', 16)
@@ -498,8 +498,8 @@ module.exports = function (a) {
 },{"bn.js":30}],9:[function(require,module,exports){
 (function (Buffer){
 const async = require('async')
-const fees = require('ethereum-common')
-const utils = require('ethereumjs-util')
+const fees = require('expanse-common')
+const utils = require('expansejs-util')
 const BN = utils.BN
 const rlp = utils.rlp
 const constants = require('./constants.js')
@@ -1347,7 +1347,7 @@ function makeCall (runState, callOptions, localOpts, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./constants.js":5,"./logTable.js":8,"async":29,"buffer":130,"ethereum-common":56,"ethereumjs-util":65}],10:[function(require,module,exports){
+},{"./constants.js":5,"./logTable.js":8,"async":29,"buffer":130,"expanse-common":56,"expansejs-util":65}],10:[function(require,module,exports){
 const codes = {
   // 0x0 range - arithmetic ops
   // name, baseCost, off stack, on stack, dynamic
@@ -1528,9 +1528,9 @@ module.exports = function (op, full) {
 
 },{}],11:[function(require,module,exports){
 (function (Buffer){
-const utils = require('ethereumjs-util')
+const utils = require('expansejs-util')
 const BN = require('bn.js')
-const fees = require('ethereum-common')
+const fees = require('expanse-common')
 const ecdsa = require('secp256k1')
 const gasCost = new BN(fees.ecrecoverGas.v)
 
@@ -1591,12 +1591,12 @@ module.exports = function (opts) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"bn.js":30,"buffer":130,"ethereum-common":56,"ethereumjs-util":65,"secp256k1":122}],12:[function(require,module,exports){
+},{"bn.js":30,"buffer":130,"expanse-common":56,"expansejs-util":65,"secp256k1":122}],12:[function(require,module,exports){
 (function (Buffer){
 const crypto = require('crypto')
 const BN = require('bn.js')
 const error = require('../constants.js').ERROR
-const fees = require('ethereum-common')
+const fees = require('expanse-common')
 
 module.exports = function (opts) {
   var sha256 = crypto.createHash('SHA256')
@@ -1624,13 +1624,13 @@ module.exports = function (opts) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"../constants.js":5,"bn.js":30,"buffer":130,"crypto":134,"ethereum-common":56}],13:[function(require,module,exports){
+},{"../constants.js":5,"bn.js":30,"buffer":130,"crypto":134,"expanse-common":56}],13:[function(require,module,exports){
 (function (Buffer){
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 const crypto = require('crypto')
 const BN = require('bn.js')
 const error = require('../constants.js').ERROR
-const fees = require('ethereum-common')
+const fees = require('expanse-common')
 
 module.exports = function(opts){
   var results = {}
@@ -1669,9 +1669,9 @@ module.exports = function(opts){
 }
 
 }).call(this,require("buffer").Buffer)
-},{"../constants.js":5,"bn.js":30,"buffer":130,"crypto":134,"ethereum-common":56,"ethereumjs-util":65}],14:[function(require,module,exports){
+},{"../constants.js":5,"bn.js":30,"buffer":130,"crypto":134,"expanse-common":56,"expansejs-util":65}],14:[function(require,module,exports){
 const BN = require('bn.js')
-const fees = require('ethereum-common')
+const fees = require('expanse-common')
 const error = require('../constants.js').ERROR
 
 module.exports = function(opts){
@@ -1692,12 +1692,12 @@ module.exports = function(opts){
   return results
 }
 
-},{"../constants.js":5,"bn.js":30,"ethereum-common":56}],15:[function(require,module,exports){
+},{"../constants.js":5,"bn.js":30,"expanse-common":56}],15:[function(require,module,exports){
 (function (Buffer){
 const async = require('async')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 const Bloom = require('./bloom.js')
-const common = require('ethereum-common')
+const common = require('expanse-common')
 const rlp = ethUtil.rlp
 const Trie = require('merkle-patricia-tree')
 const BN = ethUtil.BN
@@ -1908,7 +1908,7 @@ module.exports = function (opts, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./bloom.js":3,"async":29,"buffer":130,"ethereum-common":56,"ethereumjs-util":65,"merkle-patricia-tree":103}],16:[function(require,module,exports){
+},{"./bloom.js":3,"async":29,"buffer":130,"expanse-common":56,"expansejs-util":65,"merkle-patricia-tree":103}],16:[function(require,module,exports){
 const async = require('async')
 
 /**
@@ -1981,10 +1981,10 @@ module.exports = function (blockchain, cb) {
 },{"async":29}],17:[function(require,module,exports){
 (function (Buffer){
 const async = require('async')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 const BN = ethUtil.BN
-const fees = require('ethereum-common')
-const Account = require('ethereumjs-account')
+const fees = require('expanse-common')
+const Account = require('expansejs-account')
 
 /**
  * runs a CALL operation
@@ -2156,7 +2156,7 @@ module.exports = function (opts, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"async":29,"buffer":130,"ethereum-common":56,"ethereumjs-account":58,"ethereumjs-util":65}],18:[function(require,module,exports){
+},{"async":29,"buffer":130,"expanse-common":56,"expansejs-account":58,"expansejs-util":65}],18:[function(require,module,exports){
 (function (Buffer){
 /*
 
@@ -2174,8 +2174,8 @@ item length then you must use utils.pad(<item>, 32) first.
 */
 
 const async = require('async')
-const utils = require('ethereumjs-util')
-const Block = require('ethereumjs-block')
+const utils = require('expansejs-util')
+const Block = require('expansejs-block')
 const lookupOpInfo = require('./opcodes.js')
 const opFns = require('./opFns.js')
 const constants = require('./constants.js')
@@ -2410,7 +2410,7 @@ function preprocessValidJumps (runState) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./constants.js":5,"./opFns.js":9,"./opcodes.js":10,"async":29,"buffer":130,"ethereumjs-block":61,"ethereumjs-util":65,"timers":294}],19:[function(require,module,exports){
+},{"./constants.js":5,"./opFns.js":9,"./opcodes.js":10,"async":29,"buffer":130,"expansejs-block":61,"expansejs-util":65,"timers":294}],19:[function(require,module,exports){
 module.exports = function (opts, cb) {
   // for precomiled
   var results
@@ -2434,7 +2434,7 @@ module.exports = function (opts, cb) {
 const async = require('async')
 const BN = require('bn.js')
 const Bloom = require('./bloom.js')
-const Block = require('ethereumjs-block')
+const Block = require('expansejs-block')
 
 /**
  * Process a transaction. Run the vm. Transfers eth. checks balaces
@@ -2633,12 +2633,12 @@ function txLogsBloom (logs) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./bloom.js":3,"async":29,"bn.js":30,"buffer":130,"ethereumjs-block":61}],21:[function(require,module,exports){
+},{"./bloom.js":3,"async":29,"bn.js":30,"buffer":130,"expansejs-block":61}],21:[function(require,module,exports){
 (function (Buffer){
 const Trie = require('merkle-patricia-tree/secure.js')
-const common = require('ethereum-common')
+const common = require('expanse-common')
 const async = require('async')
-const Account = require('ethereumjs-account')
+const Account = require('expansejs-account')
 const fakeBlockchain = require('./fakeBlockChain.js')
 const Cache = require('./cache.js')
 const BN = require('bn.js')
@@ -2934,7 +2934,7 @@ proto.generateGenesis = function (initState, cb) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./cache.js":4,"./fakeBlockChain.js":6,"async":29,"bn.js":30,"buffer":130,"ethereum-common":56,"ethereumjs-account":58,"merkle-patricia-tree/secure.js":106}],22:[function(require,module,exports){
+},{"./cache.js":4,"./fakeBlockChain.js":6,"async":29,"bn.js":30,"buffer":130,"expanse-common":56,"expansejs-account":58,"merkle-patricia-tree/secure.js":106}],22:[function(require,module,exports){
 (function (process){
 /* Copyright (c) 2013 Rod Vagg, MIT License */
 
@@ -12205,7 +12205,7 @@ module.exports={
   "_args": [
     [
       "elliptic@^5.0.0",
-      "/home/null/code/ethereumjs-vm/node_modules/ethereumjs-account/node_modules/ethereumjs-util"
+      "/home/null/code/expansejs-vm/node_modules/expansejs-account/node_modules/expansejs-util"
     ]
   ],
   "_from": "elliptic@>=5.0.0 <6.0.0",
@@ -12228,16 +12228,16 @@ module.exports={
     "type": "range"
   },
   "_requiredBy": [
-    "/ethashjs/ethereumjs-util",
-    "/ethereumjs-account/ethereumjs-util",
-    "/ethereumjs-util",
+    "/ethashjs/expansejs-util",
+    "/expansejs-account/expansejs-util",
+    "/expansejs-util",
     "/secp256k1-browserify"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-5.1.0.tgz",
   "_shasum": "5658dfa7625a6a8fc687a5b8f249376bb271e6e9",
   "_shrinkwrap": null,
   "_spec": "elliptic@^5.0.0",
-  "_where": "/home/null/code/ethereumjs-vm/node_modules/ethereumjs-account/node_modules/ethereumjs-util",
+  "_where": "/home/null/code/expansejs-vm/node_modules/expansejs-account/node_modules/expansejs-util",
   "author": {
     "email": "fedor@indutny.com",
     "name": "Fedor Indutny"
@@ -16269,7 +16269,7 @@ module.exports={
 
 },{}],58:[function(require,module,exports){
 (function (Buffer){
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 const rlp = require('rlp')
 
 var Account = module.exports = function (data) {
@@ -16375,7 +16375,7 @@ Account.prototype.isEmpty = function () {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":130,"ethereumjs-util":59,"rlp":121}],59:[function(require,module,exports){
+},{"buffer":130,"expansejs-util":59,"rlp":121}],59:[function(require,module,exports){
 (function (Buffer){
 const SHA3 = require('sha3')
 const ec = require('elliptic').ec('secp256k1')
@@ -16759,8 +16759,8 @@ function padToEven (a) {
 }).call(this,require("buffer").Buffer)
 },{"assert":128,"bn.js":30,"buffer":130,"elliptic":35,"rlp":121,"sha3":32}],60:[function(require,module,exports){
 (function (Buffer){
-const utils = require('ethereumjs-util')
-const params = require('ethereum-common')
+const utils = require('expansejs-util')
+const params = require('expanse-common')
 const BN = utils.BN
 const rlp = utils.rlp
 /**
@@ -16929,17 +16929,17 @@ BlockHeader.prototype.isGenesis = function () {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":130,"ethereum-common":56,"ethereumjs-util":65}],61:[function(require,module,exports){
+},{"buffer":130,"expanse-common":56,"expansejs-util":65}],61:[function(require,module,exports){
 (function (Buffer){
 require('es6-shim')
-const ethUtil = require('ethereumjs-util')
-const Tx = require('ethereumjs-tx')
+const ethUtil = require('expansejs-util')
+const Tx = require('expansejs-tx')
 const Trie = require('merkle-patricia-tree')
 const BN = ethUtil.BN
 const rlp = ethUtil.rlp
 const async = require('async')
 const BlockHeader = require('./header')
-const params = require('ethereum-common')
+const params = require('expanse-common')
 
 /**
  * Represents a block
@@ -17198,10 +17198,10 @@ Block.prototype.toJSON = function (labeled) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"./header":60,"async":29,"buffer":130,"es6-shim":55,"ethereum-common":56,"ethereumjs-tx":62,"ethereumjs-util":65,"merkle-patricia-tree":103}],62:[function(require,module,exports){
+},{"./header":60,"async":29,"buffer":130,"es6-shim":55,"expanse-common":56,"expansejs-tx":62,"expansejs-util":65,"merkle-patricia-tree":103}],62:[function(require,module,exports){
 (function (global,Buffer){
-const ethUtil = require('ethereumjs-util')
-const fees = require('ethereum-common')
+const ethUtil = require('expansejs-util')
+const fees = require('expanse-common')
 const ecdsa = require('secp256k1')
 const BN = ethUtil.BN
 const rlp = ethUtil.rlp
@@ -17424,7 +17424,7 @@ Transaction.prototype.validate = function () {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"buffer":130,"ethereum-common":56,"ethereumjs-util":63,"secp256k1":122}],63:[function(require,module,exports){
+},{"buffer":130,"expanse-common":56,"expansejs-util":63,"secp256k1":122}],63:[function(require,module,exports){
 (function (Buffer){
 const SHA3 = require('sha3')
 const ec = require('elliptic').ec('secp256k1')
@@ -25404,7 +25404,7 @@ module.exports={
   "_args": [
     [
       "levelup@^1.2.1",
-      "/home/null/code/ethereumjs-vm/node_modules/merkle-patricia-tree"
+      "/home/null/code/expansejs-vm/node_modules/merkle-patricia-tree"
     ]
   ],
   "_from": "levelup@>=1.2.1 <2.0.0",
@@ -25428,7 +25428,7 @@ module.exports={
   },
   "_requiredBy": [
     "#DEV:/",
-    "/ethereumjs-blockchain",
+    "/expansejs-blockchain",
     "/level-packager",
     "/merkle-patricia-tree"
   ],
@@ -25436,7 +25436,7 @@ module.exports={
   "_shasum": "13b537deb4a7536c3aa6fbe008a1af4a0350dbd5",
   "_shrinkwrap": null,
   "_spec": "levelup@^1.2.1",
-  "_where": "/home/null/code/ethereumjs-vm/node_modules/merkle-patricia-tree",
+  "_where": "/home/null/code/expansejs-vm/node_modules/merkle-patricia-tree",
   "browser": {
     "leveldown": false,
     "leveldown/package": false,
@@ -25926,7 +25926,7 @@ const levelup = require('levelup')
 const memdown = require('memdown')
 const async = require('async')
 const rlp = require('rlp')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 const semaphore = require('semaphore')
 const TrieNode = require('./trieNode')
 const ReadStream = require('./readStream')
@@ -26619,7 +26619,7 @@ Trie.prototype.checkRoot = function (root, cb) {
   })
 }
 
-},{"./readStream":104,"./trieNode":107,"./util":108,"assert":128,"async":29,"ethereumjs-util":65,"levelup":95,"memdown":100,"rlp":121,"semaphore":123}],102:[function(require,module,exports){
+},{"./readStream":104,"./trieNode":107,"./util":108,"assert":128,"async":29,"expansejs-util":65,"levelup":95,"memdown":100,"rlp":121,"semaphore":123}],102:[function(require,module,exports){
 const levelup = require('levelup')
 const memdown = require('memdown')
 const async = require('async')
@@ -26844,7 +26844,7 @@ TrieReadStream.prototype._read = function () {
 }
 
 },{"./trieNode":107,"readable-stream":120,"util":296}],105:[function(require,module,exports){
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 
 module.exports = secureInterface
 
@@ -26884,7 +26884,7 @@ function del (_super, key, cb) {
   _super(hash, cb)
 }
 
-},{"ethereumjs-util":65}],106:[function(require,module,exports){
+},{"expansejs-util":65}],106:[function(require,module,exports){
 const CheckpointTrie = require('./index')
 const secureInterface = require('./secure-interface')
 const inherits = require('util').inherits
@@ -26900,7 +26900,7 @@ function SecureTrie () {
 },{"./index":103,"./secure-interface":105,"util":296}],107:[function(require,module,exports){
 (function (Buffer){
 const rlp = require('rlp')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 
 module.exports = TrieNode
 
@@ -27156,7 +27156,7 @@ function isRawNode (node) {
 }
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":130,"ethereumjs-util":65,"rlp":121}],108:[function(require,module,exports){
+},{"buffer":130,"expansejs-util":65,"rlp":121}],108:[function(require,module,exports){
 (function (process){
 const async = require('async')
 

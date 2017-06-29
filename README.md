@@ -1,19 +1,18 @@
 # SYNOPSIS 
 
-[![NPM Package](https://img.shields.io/npm/v/ethereumjs-vm.svg?style=flat-square)](https://www.npmjs.org/package/ethereumjs-vm)
-[![Build Status](https://img.shields.io/travis/ethereumjs/ethereumjs-vm.svg?branch=master&style=flat-square)](https://travis-ci.org/ethereumjs/ethereumjs-vm)
-[![Gitter](https://img.shields.io/gitter/room/ethereum/ethereumjs-lib.svg?style=flat-square)](https://gitter.im/ethereum/ethereumjs-lib) or #ethereumjs on freenode  
+[![NPM Package](https://img.shields.io/npm/v/expansejs-vm.svg?style=flat-square)](https://www.npmjs.org/package/expansejs-vm)
+[![Build Status](https://img.shields.io/travis/expansejs/expansejs-vm.svg?branch=master&style=flat-square)](https://travis-ci.org/expansejs/expansejs-vm) 
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard) 
 
-Implements Ethereum's VM in JS
+Implements Expanse's VM in JS
 
 # INSTALL
-`npm install ethereumjs-vm`
+`npm install expansejs-vm`
 
 # USAGE
 ```javascript
-var VM = require('ethereumjs-vm')
+var VM = require('expansejs-vm')
 
 //create a new VM instance
 var vm = new VM()
@@ -33,7 +32,7 @@ Also more examples can be found here
 - [old blog post](https://wanderer.github.io/ethereum/nodejs/code/2014/08/12/running-contracts-with-vm/)
 
 # BROWSER  
-To build for standalone use in the browser install `browserify` and run `npm run build`. This will give you a global variable `EthVM` to use. The standalone file will be at `./dist/ethereumjs-vm.js`
+To build for standalone use in the browser install `browserify` and run `npm run build`. This will give you a global variable `EthVM` to use. The standalone file will be at `./dist/expansejs-vm.js`
 
 # API
   - [`new VM([opts])`](#new-vmstatetrie-blockchain)  
@@ -50,10 +49,10 @@ To build for standalone use in the browser install `browserify` and run `npm run
 ### `new VM([StateTrie], [blockchain])`
 Creates a new VM object
 - `StateTrie` - The [Patricia Merkle Tree](https://github.com/wanderer/merkle-patricia-tree) that contains the state. If no trie is given the `VM` will create an in memory trie.
-- `blockchain` - an instance of the [`Blockchain`](https://github.com/ethereum/ethereumjs-lib/blob/master/docs/blockchain.md) If no blockchain is given a fake blockchain will be used.
+- `blockchain` - an instance of the [`Blockchain`](https://github.com/ethereum/expansejs-lib/blob/master/docs/blockchain.md) If no blockchain is given a fake blockchain will be used.
 - `opts`
   - `state` - the state trie
-  - `blockchain` - an instance of ethereumjs-blockchain
+  - `blockchain` - an instance of expansejs-blockchain
   - `enableHomestead` - a boolean that overrides the homestead settings based on blocknumber
   - `activatePrecompiles` - create entries in the state tree for the precompiled contracts
 
@@ -62,7 +61,7 @@ Creates a new VM object
 
 #### `vm.runBlockchain(blockchain, cb)`
 Process a transaction.
-- `blockchain` - A [blockchain](https://github.com/ethereum/ethereumjs-blockchain) that to process
+- `blockchain` - A [blockchain](https://github.com/ethereum/expansejs-blockchain) that to process
 - `cb` - The callback. It is given an err parameter if it fails
 
 --------------------------------------------------------
@@ -79,7 +78,7 @@ Processes the `block` running all of the transactions it contains and updating t
 
 #### `vm.runTx(opts, cb)`
 Process a transaction.
-- `opts.tx` - A [`Transaction`](https://github.com/ethereum/ethereumjs-tx) to run.
+- `opts.tx` - A [`Transaction`](https://github.com/ethereum/expansejs-tx) to run.
 - `opts.block` - The block to which the `tx` belongs. If omitted a blank block will be used.
 - `cb` - The callback. It is given two arguments, an `error` string containing an error that may have happened or `null`, and a `results` object with the following properties:
   - `amountSpent` - the amount of ether used by this transaction as a `bignum`
@@ -143,7 +142,7 @@ The `step` event is given an `Object` and callback. The `Object` has the followi
 - `gas` - a `bignum` standing for the amount of gasLeft
 - `stack` - an `Array` of `Buffers` containing the stack. 
 - `storageTrie` - the storage [trie](https://github.com/wanderer/merkle-patricia-tree) for the account
-- `account` - the [`Account`](https://github.com/ethereum/ethereumjs-account) which owns the code running.
+- `account` - the [`Account`](https://github.com/ethereum/expansejs-account) which owns the code running.
 - `address` - the address of the `account`
 - `depth` - the current number of calls deep the contract is
 - `memory` - the memory of the VM as a `buffer`

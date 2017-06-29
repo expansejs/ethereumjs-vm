@@ -1,9 +1,9 @@
 const async = require('async')
 const VM = require('../')
-const Account = require('ethereumjs-account')
+const Account = require('expansejs-account')
 const testUtil = require('./util')
 const Trie = require('merkle-patricia-tree/secure')
-const ethUtil = require('ethereumjs-util')
+const ethUtil = require('expansejs-util')
 const BN = ethUtil.BN
 
 module.exports = function runStateTest (options, testData, t, cb) {
