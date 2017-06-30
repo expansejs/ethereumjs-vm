@@ -1,4 +1,4 @@
-var ethTests = require('expansejs-testing').tests
+var ethTests = require('ethereumjs-testing').tests
 var test = require('tape')
 var cp = require('child_process')
 

@@ -1,4 +1,4 @@
-const genesisData = require('expansejs-testing').tests.basicTests.genesishashestest
+const genesisData = require('./genesis.json');
 const tape = require('tape')
 const VM = require('../')
 
